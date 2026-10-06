@@ -30,13 +30,21 @@ export function createBanner(url) {
 
 export function createWelcomePanel(member, memberCount) {
   const container = new ContainerBuilder()
-    .setAccentColor(0xff4f9d)
+    .setAccentColor(0xff4f9d);
+
+  // Keep the banner first so the welcome looks intentional on both desktop and iPhone.
+  const banner = createBanner(config.banners.welcome);
+  if (banner) {
+    container.addMediaGalleryComponents(banner);
+  }
+
+  container
     .addTextDisplayComponents(
       new TextDisplayBuilder().setContent(
-        `# 🌸 WELCOME TO BLOSSOMS! 🌸\n\n` +
-        `Welcome to Blossoms! We're glad to have you here. 🌷\n\n` +
+        `## 🌸 WELCOME TO BLOSSOMS! 🌸\n\n` +
+        `Welcome to Blossoms! We're glad to have you here, <@${member.id}>. 🌷\n\n` +
         `Whether you're here to meet new people, hang out with the community, participate in events, or simply relax, there's a place for you here.\n\n` +
-        `✨ **Before you get started:**\n\n` +
+        `✨ **Before you get started:**\n` +
         `📜 Read through our server rules\n` +
         `🎭 Pick your roles\n` +
         `💬 Introduce yourself and meet the community\n` +
@@ -45,18 +53,12 @@ export function createWelcomePanel(member, memberCount) {
         `Please make yourself comfortable, be respectful to others, and most importantly — have fun!\n\n` +
         `🌷 Once again, welcome to Blossoms! We hope you enjoy your stay.`
       )
-    );
-
-  const banner = createBanner(config.banners.welcome);
-  if (banner) {
-    container.addMediaGalleryComponents(banner);
-  }
-
-  container
+    )
     .addSeparatorComponents(new SeparatorBuilder())
     .addTextDisplayComponents(
       new TextDisplayBuilder().setContent(
-        `**Member Count:** ${memberCount}\n*Welcome to the community — we're happy you're here.*`
+        `**Member Count:** ${memberCount}\n` +
+        `*Welcome to the community — we're happy you're here.*`
       )
     );
 
