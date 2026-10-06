@@ -32,28 +32,81 @@ export function createWelcomePanel(member, memberCount) {
   const container = new ContainerBuilder()
     .setAccentColor(0xff4f9d);
 
-  // Keep the banner first so the welcome looks intentional on both desktop and iPhone.
+  // Keep the banner at the top for a clean, mobile-friendly welcome card.
   const banner = createBanner(config.banners.welcome);
   if (banner) {
     container.addMediaGalleryComponents(banner);
   }
 
-  container
-    .addTextDisplayComponents(
-      new TextDisplayBuilder().setContent(
-        `## 🌸 WELCOME TO BLOSSOMS! 🌸\n\n` +
-        `Welcome to Blossoms! We're glad to have you here, <@${member.id}>. 🌷\n\n` +
-        `Whether you're here to meet new people, hang out with the community, participate in events, or simply relax, there's a place for you here.\n\n` +
-        `✨ **Before you get started:**\n` +
-        `📜 Read through our server rules\n` +
-        `🎭 Pick your roles\n` +
-        `💬 Introduce yourself and meet the community\n` +
-        `🎉 Check out our events and activities\n` +
-        `🛍️ Explore everything Blossoms has to offer\n\n` +
-        `Please make yourself comfortable, be respectful to others, and most importantly — have fun!\n\n` +
-        `🌷 Once again, welcome to Blossoms! We hope you enjoy your stay.`
-      )
+  container.addTextDisplayComponents(
+    new TextDisplayBuilder().setContent(
+      `## 🌸 WELCOME TO BLOSSOMS! 🌸\n\n` +
+      `Welcome to Blossoms! We're glad to have you here. 🌷\n\n` +
+      `Whether you're here to meet new people, hang out with the community, participate in events, or simply relax, there's a place for you here.\n\n` +
+      `✨ **Before you get started:**\n` +
+      `📜 Read through our server rules\n` +
+      `🎭 Pick your roles\n` +
+      `💬 Introduce yourself and meet the community\n` +
+      `🎉 Check out our events and activities\n` +
+      `🛍️ Explore everything Blossoms has to offer\n\n` +
+      `Please make yourself comfortable, be respectful to others, and most importantly — have fun!\n\n` +
+      `🌷 Once again, welcome to Blossoms! We hope you enjoy your stay.\n\n` +
+      `🌐 **Blossoms Dashboard**\n` +
+      `Use the dashboard to explore Blossoms resources, manage your community options, and find everything you need in one place.`
     )
+  );
+
+  const buttons = [];
+
+  if (config.links.rules) {
+    buttons.push(
+      new ButtonBuilder()
+        .setLabel("Rules")
+        .setEmoji("📜")
+        .setStyle(ButtonStyle.Link)
+        .setURL(config.links.rules)
+    );
+  }
+
+  if (config.links.roleSelect) {
+    buttons.push(
+      new ButtonBuilder()
+        .setLabel("Role Select")
+        .setEmoji("🎭")
+        .setStyle(ButtonStyle.Link)
+        .setURL(config.links.roleSelect)
+    );
+  }
+
+  if (config.links.marketplace) {
+    buttons.push(
+      new ButtonBuilder()
+        .setLabel("Marketplace")
+        .setEmoji("🛍️")
+        .setStyle(ButtonStyle.Link)
+        .setURL(config.links.marketplace)
+    );
+  }
+
+  if (config.links.dashboard) {
+    buttons.push(
+      new ButtonBuilder()
+        .setLabel("Dashboard")
+        .setEmoji("🌐")
+        .setStyle(ButtonStyle.Link)
+        .setURL(config.links.dashboard)
+    );
+  }
+
+  // Discord limits an action row to five buttons.
+  if (buttons.length > 0) {
+    container.addSeparatorComponents(new SeparatorBuilder());
+    container.addActionRowComponents(
+      new ActionRowBuilder().addComponents(buttons.slice(0, 5))
+    );
+  }
+
+  container
     .addSeparatorComponents(new SeparatorBuilder())
     .addTextDisplayComponents(
       new TextDisplayBuilder().setContent(
