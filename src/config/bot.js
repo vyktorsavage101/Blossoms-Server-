@@ -17,6 +17,8 @@ import {
   sendWelcome,
 } from "../handlers/panels.js";
 
+import { createWelcomePanel } from "./components.js";
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -124,7 +126,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
         const channel = await interaction.guild.channels.fetch(
           config.channels.welcome
         );
-        await sendWelcome(interaction.member);
+        await channel.send(
+          createWelcomePanel(interaction.user, interaction.guild.memberCount)
+        );
         await interaction.reply({
           content: `Welcome panel posted in <#${channel.id}>.`,
           ephemeral: true,
@@ -134,7 +138,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
       if (interaction.commandName === "rolepanel") {
         const channel = await interaction.guild.channels.fetch(
-          config.channels.verification
+          config.channels.roleSelect
         );
         await sendRolePanel(channel);
         await interaction.reply({

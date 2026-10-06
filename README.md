@@ -142,10 +142,11 @@ They are administrator-only.
 5. Create a verification channel.
 6. Create a rules channel.
 7. Fill in `.env`.
-8. Start the bot.
-9. Run `/verification` in the verification channel.
-10. Run `/rules` in the rules channel.
-11. Run `/welcome` in the welcome channel if you want to manually repost it.
+9. Start the bot.
+10. Run `/verification` in the verification channel.
+11. Run `/rolepanel` in the role-selection channel.
+12. Run `/rules` in the rules channel.
+13. Run `/welcome` in the welcome channel if you want to manually repost it.
 
 New members will automatically get `Unverified` and receive the welcome panel.
 

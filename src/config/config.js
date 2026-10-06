@@ -23,6 +23,7 @@ const config = {
     welcome: required("WELCOME_CHANNEL_ID"),
     verification: required("VERIFICATION_CHANNEL_ID"),
     rules: required("RULES_CHANNEL_ID"),
+    roleSelect: required("ROLE_SELECT_CHANNEL_ID"),
     ticketCategory: required("TICKET_CATEGORY_ID"),
     staffLog: optional("STAFF_LOG_CHANNEL_ID"),
   },
