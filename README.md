@@ -4,7 +4,7 @@ A clean Discord.js bot for the Blossoms community built around **Discord Compone
 
 ## Included
 
-- Automatic welcome message in a designated welcome channel whenever a new member joins. There is intentionally no `/welcome` command.
+- Automatic welcome message in a designated welcome channel.
 - Welcome message mentions the new member.
 - Member count displayed at the bottom of the panel as a visual footer.
 - Welcome banner at the top.
@@ -26,6 +26,7 @@ A clean Discord.js bot for the Blossoms community built around **Discord Compone
   - Denied members remain unable to see the normal server.
 - `/rules`
 - `/verification`
+- `/welcome`
 - `/rolepanel`
 - Verification logs.
 - Ticket cleanup after a decision.
@@ -127,6 +128,7 @@ The bot registers:
 
 - `/rules`
 - `/verification`
+- `/welcome`
 - `/rolepanel`
 
 They are administrator-only.
