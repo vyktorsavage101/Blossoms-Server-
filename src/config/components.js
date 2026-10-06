@@ -29,10 +29,13 @@ export function createBanner(url) {
 }
 
 export function createWelcomePanel(member, memberCount) {
+  const channelUrl = (channelId) =>
+    `https://discord.com/channels/${member.guild.id}/${channelId}`;
+
   const container = new ContainerBuilder()
     .setAccentColor(0xff4f9d);
 
-  // Keep the banner at the top for a clean, mobile-friendly welcome card.
+  // Banner stays at the very top of the welcome card.
   const banner = createBanner(config.banners.welcome);
   if (banner) {
     container.addMediaGalleryComponents(banner);
@@ -41,7 +44,7 @@ export function createWelcomePanel(member, memberCount) {
   container.addTextDisplayComponents(
     new TextDisplayBuilder().setContent(
       `## 🌸 WELCOME TO BLOSSOMS! 🌸\n\n` +
-      `Welcome to Blossoms! We're glad to have you here. 🌷\n\n` +
+      `Welcome to Blossoms! We're glad to have you here, <@${member.id}>. 🌷\n\n` +
       `Whether you're here to meet new people, hang out with the community, participate in events, or simply relax, there's a place for you here.\n\n` +
       `✨ **Before you get started:**\n` +
       `📜 Read through our server rules\n` +
@@ -56,27 +59,18 @@ export function createWelcomePanel(member, memberCount) {
     )
   );
 
-  const buttons = [];
-
-  if (config.links.rules) {
-    buttons.push(
-      new ButtonBuilder()
-        .setLabel("Rules")
-        .setEmoji("📜")
-        .setStyle(ButtonStyle.Link)
-        .setURL(config.links.rules)
-    );
-  }
-
-  if (config.links.roleSelect) {
-    buttons.push(
-      new ButtonBuilder()
-        .setLabel("Role Select")
-        .setEmoji("🎭")
-        .setStyle(ButtonStyle.Link)
-        .setURL(config.links.roleSelect)
-    );
-  }
+  const buttons = [
+    new ButtonBuilder()
+      .setLabel("Rules")
+      .setEmoji("📜")
+      .setStyle(ButtonStyle.Link)
+      .setURL(channelUrl(config.channels.rules)),
+    new ButtonBuilder()
+      .setLabel("Role Select")
+      .setEmoji("🎭")
+      .setStyle(ButtonStyle.Link)
+      .setURL(channelUrl(config.channels.roleSelect)),
+  ];
 
   if (config.links.marketplace) {
     buttons.push(
@@ -98,15 +92,11 @@ export function createWelcomePanel(member, memberCount) {
     );
   }
 
-  // Discord limits an action row to five buttons.
-  if (buttons.length > 0) {
-    container.addSeparatorComponents(new SeparatorBuilder());
-    container.addActionRowComponents(
-      new ActionRowBuilder().addComponents(buttons.slice(0, 5))
-    );
-  }
-
   container
+    .addSeparatorComponents(new SeparatorBuilder())
+    .addActionRowComponents(
+      new ActionRowBuilder().addComponents(buttons.slice(0, 5))
+    )
     .addSeparatorComponents(new SeparatorBuilder())
     .addTextDisplayComponents(
       new TextDisplayBuilder().setContent(
