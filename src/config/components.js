@@ -32,6 +32,13 @@ export function createWelcomePanel(member, memberCount) {
   const channelUrl = (channelId) =>
     `https://discord.com/channels/${member.guild.id}/${channelId}`;
 
+  // Config values may be either Discord channel IDs or full external URLs.
+  const destinationUrl = (destination) => {
+    if (!destination) return null;
+    if (/^\d{17,20}$/.test(destination)) return channelUrl(destination);
+    return destination;
+  };
+
   const container = new ContainerBuilder()
     .setAccentColor(0xff4f9d);
 
@@ -78,7 +85,7 @@ export function createWelcomePanel(member, memberCount) {
         .setLabel("Marketplace")
         .setEmoji("🛍️")
         .setStyle(ButtonStyle.Link)
-        .setURL(config.links.marketplace)
+        .setURL(destinationUrl(config.links.marketplace))
     );
   }
 
@@ -88,7 +95,7 @@ export function createWelcomePanel(member, memberCount) {
         .setLabel("Dashboard")
         .setEmoji("🌐")
         .setStyle(ButtonStyle.Link)
-        .setURL(config.links.dashboard)
+        .setURL(destinationUrl(config.links.dashboard))
     );
   }
 
