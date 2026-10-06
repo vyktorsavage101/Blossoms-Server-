@@ -17,7 +17,6 @@ import {
   sendWelcome,
 } from "../handlers/panels.js";
 
-import { createWelcomePanel } from "./components.js";
 
 const client = new Client({
   intents: [
@@ -35,11 +34,6 @@ const commands = [
   {
     name: "verification",
     description: "Post the verification ticket panel.",
-    default_member_permissions: PermissionFlagsBits.Administrator.toString(),
-  },
-  {
-    name: "welcome",
-    description: "Post the welcome panel.",
     default_member_permissions: PermissionFlagsBits.Administrator.toString(),
   },
   {
@@ -117,20 +111,6 @@ client.on(Events.InteractionCreate, async (interaction) => {
         await sendVerification(channel);
         await interaction.reply({
           content: `Verification panel posted in <#${channel.id}>.`,
-          ephemeral: true,
-        });
-        return;
-      }
-
-      if (interaction.commandName === "welcome") {
-        const channel = await interaction.guild.channels.fetch(
-          config.channels.welcome
-        );
-        await channel.send(
-          createWelcomePanel(interaction.user, interaction.guild.memberCount)
-        );
-        await interaction.reply({
-          content: `Welcome panel posted in <#${channel.id}>.`,
           ephemeral: true,
         });
         return;

@@ -30,11 +30,20 @@ export function createBanner(url) {
 
 export function createWelcomePanel(member, memberCount) {
   const container = new ContainerBuilder()
-    .setAccentColor(config.accentColor)
+    .setAccentColor(0xff4f9d)
     .addTextDisplayComponents(
       new TextDisplayBuilder().setContent(
-        `# Welcome to ${config.serverName}!\n` +
-        `We're glad to have you here, <@${member.id}>.`
+        `# 🌸 WELCOME TO BLOSSOMS! 🌸\n\n` +
+        `Welcome to Blossoms! We're glad to have you here. 🌷\n\n` +
+        `Whether you're here to meet new people, hang out with the community, participate in events, or simply relax, there's a place for you here.\n\n` +
+        `✨ **Before you get started:**\n\n` +
+        `📜 Read through our server rules\n` +
+        `🎭 Pick your roles\n` +
+        `💬 Introduce yourself and meet the community\n` +
+        `🎉 Check out our events and activities\n` +
+        `🛍️ Explore everything Blossoms has to offer\n\n` +
+        `Please make yourself comfortable, be respectful to others, and most importantly — have fun!\n\n` +
+        `🌷 Once again, welcome to Blossoms! We hope you enjoy your stay.`
       )
     );
 
@@ -47,37 +56,7 @@ export function createWelcomePanel(member, memberCount) {
     .addSeparatorComponents(new SeparatorBuilder())
     .addTextDisplayComponents(
       new TextDisplayBuilder().setContent(
-        `## Getting Started\n` +
-        `Please take a moment to read the server rules, choose your community roles, and explore the marketplace.\n\n` +
-        `🌐 **Rules** — Learn the community guidelines.\n` +
-        `🎭 **Roles** — Choose the notifications and community roles you want.\n` +
-        `🛒 **Marketplace** — View Blossoms marketplace options.`
-      )
-    )
-    .addActionRowComponents(
-      new ActionRowBuilder().addComponents(
-        new ButtonBuilder()
-          .setCustomId("welcome_rules")
-          .setLabel("Rules")
-          .setEmoji("📖")
-          .setStyle(ButtonStyle.Secondary),
-        new ButtonBuilder()
-          .setCustomId("welcome_roles")
-          .setLabel("Choose Roles")
-          .setEmoji("🎭")
-          .setStyle(ButtonStyle.Secondary),
-        new ButtonBuilder()
-          .setCustomId("welcome_marketplace")
-          .setLabel("Marketplace")
-          .setEmoji("🛒")
-          .setStyle(ButtonStyle.Secondary)
-      )
-    )
-    .addSeparatorComponents(new SeparatorBuilder())
-    .addTextDisplayComponents(
-      new TextDisplayBuilder().setContent(
-        `**Member Count:** ${memberCount}\n` +
-        `*Welcome to the community — we're happy you're here.*`
+        `**Member Count:** ${memberCount}\n*Welcome to the community — we're happy you're here.*`
       )
     );
 

@@ -1,165 +1,124 @@
-# Blossoms Verification Bot
+# 🌸 Blossoms Server Bot
 
-A clean Discord.js bot for the Blossoms community built around **Discord Components V2**.
+Discord.js bot for **Blossoms**, built entirely around Discord **Components V2**.
 
-## Included
+## What this bot does
 
-- Automatic welcome message in a designated welcome channel.
-- Welcome message mentions the new member.
-- Member count displayed at the bottom of the panel as a visual footer.
-- Welcome banner at the top.
-- Rules button.
-- Marketplace button.
-- Role-selection dropdown.
-- Verification panel with a private ticket button.
-- New members automatically receive `Unverified`.
-- Staff can approve or deny a verification ticket.
-- Approval:
-  - Gives `Community Member`
-  - Removes `Unverified`
-  - Removes `Denied`
-  - Gives access to the normal server channels through Discord permissions.
-- Denial:
-  - Removes `Community Member`
-  - Removes `Unverified`
-  - Gives `Denied`
-  - Denied members remain unable to see the normal server.
+### 🌸 Automatic welcome
+When a member joins Blossoms, the bot automatically:
+
+1. Gives them the `Unverified` role.
+2. Posts the Blossoms welcome panel in the configured Welcome channel.
+3. Mentions the new member.
+4. Shows the member count.
+5. Displays the configured Blossoms welcome banner.
+
+**There is no `/welcome` command.** The welcome panel is join-triggered only.
+
+### 🎭 Role Select
+The permanent role-selection panel is posted in the configured **Role Select** channel.
+
+### 🔐 Verification
+The permanent verification panel is posted in the configured **Verify** channel.
+
+A member can open a private verification ticket. Staff can approve or deny the application.
+
+**Approved:**
+- `Community Member` is added.
+- `Unverified` is removed.
+- `Denied` is removed.
+
+**Denied:**
+- `Community Member` is removed.
+- `Unverified` is removed.
+- `Denied` is added.
+
+### 📜 Rules
+`/rules` posts the Blossoms rules panel in the configured Rules channel.
+
+### Slash commands
 - `/rules`
 - `/verification`
-- `/welcome`
 - `/rolepanel`
-- Verification logs.
-- Ticket cleanup after a decision.
-- No traditional Discord embeds are used by the bot's panels. The UI is built with Components V2.
 
-## IMPORTANT: Discord permissions
+All three are administrator-only. There is intentionally **no `/welcome` command**.
 
-The bot cannot make a member "not see the server" by itself. Discord channel/category permissions control visibility.
+## Recommended repository structure
 
-Set your server up like this:
+```text
+Blossoms-Server/
+├── src/
+│   ├── config/
+│   │   ├── bot.js
+│   │   ├── components.js
+│   │   └── config.js
+│   └── handlers/
+│       ├── panels.js
+│       └── tickets.js
+├── .env.example
+├── .gitignore
+├── package.json
+└── README.md
+```
 
-### Roles
+Do not upload `.env` or your Discord bot token to GitHub.
 
-Create:
+## Discord setup
 
-1. `Community Member`
-2. `Unverified`
-3. `Denied`
-4. Your verification staff role
+Create these roles:
+
+- `Community Member`
+- `Unverified`
+- `Denied`
+- Verification Staff role
 
 Put the bot's role above these roles.
 
-### Normal server channels/categories
+For normal server categories, use `Community Member` as the access role. Deny View Channel to `@everyone`, `Unverified`, and `Denied`, then allow View Channel for `Community Member`.
 
-For every normal server category:
+Keep the Welcome, Role Select, and Verify channels visible to `Unverified` so new members can complete the verification flow.
 
-- `@everyone` -> Deny `View Channel`
-- `Community Member` -> Allow `View Channel`
-- `Unverified` -> Deny `View Channel`
-- `Denied` -> Deny `View Channel`
-
-This makes `Community Member` the access gate.
-
-### Welcome / verification area
-
-For the welcome and verification channels:
-
-- `@everyone` -> Allow `View Channel` if desired
-- `Unverified` -> Allow `View Channel`
-- `Community Member` -> Allow `View Channel`
-- `Denied` -> Decide whether you want them to retain access
-
-The recommended setup is to allow `Unverified` to see the welcome and verification area.
-
-### Ticket category
-
-The bot creates each verification ticket with explicit permissions for:
-
-- the applicant
-- the verification staff role
-- the bot
-
-The ticket creator will not be able to see other tickets.
-
-## Bot permissions
-
-Give the bot:
+The bot needs:
 
 - Manage Roles
 - Manage Channels
 - View Channels
 - Send Messages
-- Embed Links
 - Read Message History
-
-No Message Content Intent is required.
+- Embed Links
 
 Enable **Server Members Intent** in the Discord Developer Portal.
 
-## Install
+## Configuration
+
+Copy `.env.example` to `.env` for local development, or add the same variables to Railway.
+
+Required channels:
+
+- `WELCOME_CHANNEL_ID`
+- `VERIFICATION_CHANNEL_ID`
+- `ROLE_SELECT_CHANNEL_ID`
+- `RULES_CHANNEL_ID`
+- `TICKET_CATEGORY_ID`
+
+Required roles:
+
+- `UNVERIFIED_ROLE_ID`
+- `COMMUNITY_MEMBER_ROLE_ID`
+- `DENIED_ROLE_ID`
+- `VERIFICATION_STAFF_ROLE_ID`
+
+Set `WELCOME_BANNER_URL` to the direct image URL for the Blossoms welcome banner.
+
+## Run
 
 ```bash
 npm install
-```
-
-Copy `.env.example` to `.env`, then fill in the values.
-
-Run:
-
-```bash
 npm start
 ```
 
-## Railway
-
-Use:
+Railway start command:
 
 ```text
 npm start
 ```
-
-Add the `.env` values as Railway Variables.
-
-Do not upload `.env` to GitHub.
-
-## Slash commands
-
-The bot registers:
-
-- `/rules`
-- `/verification`
-- `/welcome`
-- `/rolepanel`
-
-They are administrator-only.
-
-## First setup
-
-1. Create the roles.
-2. Configure category/channel permissions.
-3. Create a verification ticket category.
-4. Create a welcome channel.
-5. Create a verification channel.
-6. Create a rules channel.
-7. Fill in `.env`.
-9. Start the bot.
-10. Run `/verification` in the verification channel.
-11. Run `/rolepanel` in the role-selection channel.
-12. Run `/rules` in the rules channel.
-13. Run `/welcome` in the welcome channel if you want to manually repost it.
-
-New members will automatically get `Unverified` and receive the welcome panel.
-
-## Components V2
-
-This project intentionally uses:
-
-- ContainerBuilder
-- TextDisplayBuilder
-- MediaGalleryBuilder
-- SeparatorBuilder
-- ButtonBuilder
-- StringSelectMenuBuilder
-- MessageFlags.IsComponentsV2
-
-There are no traditional EmbedBuilder panels in this project.
