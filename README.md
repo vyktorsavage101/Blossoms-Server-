@@ -45,6 +45,3 @@ Add the variables from `.env.example` to Railway. Never commit your real bot tok
 
 ### Rules panel
 The `/rules` command posts the Blossoms rules panel as a clean, single Components V2 card matching the supplied desktop/mobile reference layout.
-
-### Verification ticket panel
-Verification tickets use a pink Blossoms Components V2 panel with clear applicant instructions, a four-step verification flow, privacy guidance, and staff-only decision controls.
