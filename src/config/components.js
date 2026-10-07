@@ -270,7 +270,7 @@ export function createRulesPanel() {
 
         `____________________\n\n` +
         `🌷 **FINAL NOTE**\n\n` +
-        `*By remaining in* **Blossoms**, *you agree to follow these rules and any additional guidelines provided by the staff team.\n\n` +
+        `*By remaining in* **Blossoms**, *you agree to follow these rules and any additional guidelines provided by the staff team.*\n\n` +
         `**Have fun, meet new people, and help make Blossoms a great community!** 💗\n\n` +
         `*Blossoms • Growing a better community together* 🌸`
       )
