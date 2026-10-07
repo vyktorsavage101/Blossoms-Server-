@@ -32,13 +32,6 @@ export function createWelcomePanel(member, memberCount) {
   const channelUrl = (channelId) =>
     `https://discord.com/channels/${member.guild.id}/${channelId}`;
 
-  // Config values may be either Discord channel IDs or full external URLs.
-  const destinationUrl = (destination) => {
-    if (!destination) return null;
-    if (/^\d{17,20}$/.test(destination)) return channelUrl(destination);
-    return destination;
-  };
-
   const container = new ContainerBuilder()
     .setAccentColor(0xff4f9d);
 
@@ -85,7 +78,7 @@ export function createWelcomePanel(member, memberCount) {
         .setLabel("Marketplace")
         .setEmoji("🛍️")
         .setStyle(ButtonStyle.Link)
-        .setURL(destinationUrl(config.links.marketplace))
+        .setURL(config.links.marketplace)
     );
   }
 
@@ -95,7 +88,7 @@ export function createWelcomePanel(member, memberCount) {
         .setLabel("Dashboard")
         .setEmoji("🌐")
         .setStyle(ButtonStyle.Link)
-        .setURL(destinationUrl(config.links.dashboard))
+        .setURL(config.links.dashboard)
     );
   }
 
@@ -238,57 +231,37 @@ export function createTicketPanel(member) {
 
 export function createRulesPanel() {
   const container = new ContainerBuilder()
-    .setAccentColor(config.accentColor)
+    .setAccentColor(0xff4f9d)
     .addTextDisplayComponents(
       new TextDisplayBuilder().setContent(
-        `# 🌐 ${config.serverName} — SERVER RULES\n\n` +
-        `Welcome to ${config.serverName}!\n\n` +
-        `To keep our community welcoming, enjoyable, and safe for everyone, please take a moment to read and follow the rules below.`
-      )
-    );
-
-  const banner = createBanner(config.banners.rules);
-  if (banner) {
-    container.addMediaGalleryComponents(banner);
-  }
-
-  container
-    .addSeparatorComponents(new SeparatorBuilder())
-    .addTextDisplayComponents(
-      new TextDisplayBuilder().setContent(
-        `## 01 • RESPECT\n` +
+        `**🌸 BLOSSOMS — SERVER RULES 🌸**\n\n` +
+        `Welcome to **Blossoms!** 🌷\n\n` +
+        `To keep our community welcoming, enjoyable, and safe for everyone, please take a moment to read and follow the rules below.\n\n` +
+        `**01 • RESPECT**\n` +
         `Treat everyone with kindness and respect. Harassment, bullying, discrimination, hate speech, or targeted attacks will not be tolerated.\n\n` +
-        `## 02 • NO DRAMA\n` +
+        `**02 • NO DRAMA**\n` +
         `Do not start, encourage, or spread unnecessary drama, arguments, or conflicts. Keep personal issues out of public channels.\n\n` +
-        `## 03 • KEEP IT APPROPRIATE\n` +
+        `**03 • KEEP IT APPROPRIATE**\n` +
         `Sexual, excessively graphic, NSFW, or otherwise inappropriate content is not allowed. Keep conversations suitable for the community.\n\n` +
-        `## 04 • NO SPAM\n` +
+        `**04 • NO SPAM**\n` +
         `Avoid excessive spam, excessive tagging, repeated messages, emoji spam, or unnecessary use of commands.\n\n` +
-        `## 05 • NO ADVERTISING\n` +
+        `**05 • NO ADVERTISING**\n` +
         `Do not advertise other servers, services, social media, products, or communities without permission from the staff team.\n\n` +
-        `## 06 • USE THE RIGHT CHANNEL\n` +
-        `Please keep conversations in their appropriate channels and follow any channel-specific rules or instructions.`
-      )
-    )
-    .addSeparatorComponents(new SeparatorBuilder())
-    .addTextDisplayComponents(
-      new TextDisplayBuilder().setContent(
-        `## 07 • NO MALICIOUS ACTIVITY\n` +
+        `**06 • USE THE RIGHT CHANNEL**\n` +
+        `Please keep conversations in their appropriate channels and follow any channel-specific rules or instructions.\n\n` +
+        `**07 • NO MALICIOUS ACTIVITY**\n` +
         `Scamming, phishing, malicious links, threats, doxxing, account theft, or attempts to harm other members are strictly prohibited.\n\n` +
-        `## 08 • RESPECT PRIVACY\n` +
+        `**08 • RESPECT PRIVACY**\n` +
         `Do not share another person's private information, messages, images, or personal details without their permission.\n\n` +
-        `## 09 • LISTEN TO STAFF\n` +
+        `**09 • LISTEN TO STAFF**\n` +
         `Staff members are responsible for maintaining the community. Follow reasonable staff instructions and use the appropriate channels if you wish to appeal a moderation action.\n\n` +
-        `## 10 • USE COMMON SENSE\n` +
-        `Not every situation can be covered by a written rule. If something is clearly disruptive, harmful, or inappropriate, staff may take action.`
-      )
-    )
-    .addSeparatorComponents(new SeparatorBuilder())
-    .addTextDisplayComponents(
-      new TextDisplayBuilder().setContent(
-        `## 🌸 FINAL NOTE\n` +
-        `By remaining in ${config.serverName}, you agree to follow these rules and any additional guidelines provided by the staff team.\n\n` +
-        `**Have fun, meet new people, and help make ${config.serverName} a great community!**`
+        `**10 • USE COMMON SENSE**\n` +
+        `Not every situation can be covered by a written rule. If something is clearly disruptive, harmful, or inappropriate, staff may take action.\n\n` +
+        `____________________\n\n` +
+        `🌷 **FINAL NOTE**\n` +
+        `By remaining in **Blossoms**, you agree to follow these rules and any additional guidelines provided by the staff team.\n\n` +
+        `**Have fun, meet new people, and help make Blossoms a great community!** 💗\n\n` +
+        `*Blossoms • Growing a better community together* 🌸`
       )
     );
 

@@ -14,14 +14,6 @@ function optional(name, fallback = "") {
   return process.env[name]?.trim() || fallback;
 }
 
-function configuredLink(name, fallback) {
-  const value = process.env[name]?.trim();
-  if (!value || value.startsWith("YOUR_") || value.includes("your-dashboard-url.example") || value.includes("your-marketplace-url.example")) {
-    return fallback;
-  }
-  return value;
-}
-
 const config = {
   token: required("TOKEN"),
   clientId: required("CLIENT_ID"),
@@ -65,8 +57,8 @@ const config = {
   links: {
     rules: optional("RULES_URL"),
     roleSelect: optional("ROLE_SELECT_URL"),
-    marketplace: configuredLink("MARKETPLACE_URL", "1556550884224409701"),
-    dashboard: configuredLink("DASHBOARD_URL", "1556920663497900073"),
+    marketplace: optional("MARKETPLACE_URL"),
+    dashboard: optional("DASHBOARD_URL"),
   },
 
   banners: {

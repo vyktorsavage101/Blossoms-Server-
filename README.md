@@ -43,8 +43,5 @@ Blossoms-Server/
 Add the variables from `.env.example` to Railway. Never commit your real bot token to GitHub.
 
 
-## Automatic welcome message
-
-The bot automatically posts the welcome panel when a member joins, using the Discord `GuildMemberAdd` event. New members do not need a Railway account or Railway login. Railway is only used to host/run the bot. Keep the service running and enable the **Server Members Intent** under Discord Developer Portal → Bot → Privileged Gateway Intents.
-
-The welcome panel includes Rules, Role Select, Marketplace, and Dashboard buttons. Marketplace and Dashboard are configured by default to open Discord channels `1556550884224409701` and `1556920663497900073` in the server. You can set `MARKETPLACE_URL` or `DASHBOARD_URL` to a full URL instead if needed.
+### Rules panel
+The `/rules` command posts the Blossoms rules panel as a clean, single Components V2 card matching the supplied desktop/mobile reference layout.
