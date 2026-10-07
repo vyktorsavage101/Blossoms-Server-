@@ -150,39 +150,52 @@ export function createRolePanel() {
 
 export function createVerificationPanel() {
   const container = new ContainerBuilder()
-    .setAccentColor(config.accentColor)
+    .setAccentColor(0xff4f9d)
     .addTextDisplayComponents(
       new TextDisplayBuilder().setContent(
-        `# 🔐 Server Verification\n` +
-        `Welcome to ${config.serverName}.\n\n` +
-        `Before you can access the rest of the server, you need to complete verification with our staff team.\n\n` +
-        `### How it works\n` +
-        `1. Open a verification ticket.\n` +
-        `2. Answer the questions from our staff team.\n` +
-        `3. Staff will approve or deny your application.\n` +
-        `4. If approved, you receive **Community Member** access.`
+        `## 🌸 SERVER VERIFICATION\n\n` +
+        `Welcome to **Blossoms!** 🌷\n\n` +
+        `We're happy to have you here! Before you can access the rest of the community, you'll need to complete a quick verification with our staff team. This helps us keep Blossoms welcoming, safe, and comfortable for everyone.`
       )
-    );
-
-  const banner = createBanner(config.banners.verification);
-  if (banner) {
-    container.addMediaGalleryComponents(banner);
-  }
-
-  container
+    )
     .addSeparatorComponents(new SeparatorBuilder())
+    .addTextDisplayComponents(
+      new TextDisplayBuilder().setContent(
+        `### 💗 How Verification Works\n\n` +
+        `**01 • Open a Ticket**\n` +
+        `Click the button below to create your private verification ticket.\n\n` +
+        `**02 • Complete Verification**\n` +
+        `A member of our verification staff will greet you and ask a few questions. Please answer honestly and respectfully.\n\n` +
+        `**03 • Staff Review**\n` +
+        `Our staff team will review your responses and decide whether your application is approved.\n\n` +
+        `**04 • Receive Access**\n` +
+        `If approved, you'll receive the **Community Member** role and gain access to the rest of Blossoms.`
+      )
+    )
+    .addSeparatorComponents(new SeparatorBuilder())
+    .addTextDisplayComponents(
+      new TextDisplayBuilder().setContent(
+        `### 🌷 Before You Open Your Ticket\n\n` +
+        `• Make sure your Discord account information is accurate.\n` +
+        `• Be respectful and patient with our verification staff.\n` +
+        `• Please don't create multiple verification tickets.\n` +
+        `• Keep all verification information inside your private ticket.\n\n` +
+        `**🔒 Your verification ticket is private and can only be viewed by you and authorized staff.**`
+      )
+    )
     .addActionRowComponents(
       new ActionRowBuilder().addComponents(
         new ButtonBuilder()
           .setCustomId("verification_open")
           .setLabel("Open Verification Ticket")
-          .setEmoji("🔐")
+          .setEmoji("🌸")
           .setStyle(ButtonStyle.Primary)
       )
     )
     .addTextDisplayComponents(
       new TextDisplayBuilder().setContent(
-        `**Important:** You will not receive normal server access until verification is approved.`
+        `**Important:** You will not receive normal server access until verification has been approved.\n\n` +
+        `🌸 **Thank you for helping us keep Blossoms a welcoming community!**`
       )
     );
 
