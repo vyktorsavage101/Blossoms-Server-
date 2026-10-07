@@ -163,13 +163,15 @@ export function createVerificationPanel() {
 
 export function createTicketPanel(member) {
   const container = new ContainerBuilder()
-    .setAccentColor(config.accentColor)
+    .setAccentColor(0xff4f9d)
     .addTextDisplayComponents(
       new TextDisplayBuilder().setContent(
-        `# 🔐 Verification Ticket\n` +
-        `Welcome, <@${member.id}>.\n\n` +
-        `Please wait for a verification staff member. They will review your application and tell you what information they need.\n\n` +
-        `**Please do not open duplicate verification tickets.**`
+        `## 🌸 VERIFICATION TICKET\n\n` +
+        `Welcome, <@${member.id}>! 💗\n\n` +
+        `Thank you for opening a verification ticket for **Blossoms**. ` +
+        `Please wait for a verification staff member to assist you with your application.\n\n` +
+        `🌷 **Please do not open duplicate tickets.**\n` +
+        `🔒 This ticket is private and can only be viewed by you and authorized verification staff.`
       )
     )
     .addSeparatorComponents(new SeparatorBuilder())
@@ -194,7 +196,7 @@ export function createTicketPanel(member) {
     )
     .addTextDisplayComponents(
       new TextDisplayBuilder().setContent(
-        `**Staff:** Use Approve only after the applicant has been verified.`
+        `**Staff:** Use **Approve** once verification is complete, **Deny** if the application is not approved, or **Close Ticket** to close the ticket without changing the member's status.`
       )
     );
 
