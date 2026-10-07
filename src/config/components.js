@@ -234,43 +234,43 @@ export function createRulesPanel() {
     .setAccentColor(0xff4f9d)
     .addTextDisplayComponents(
       new TextDisplayBuilder().setContent(
-        `# 🌸 BLOSSOMS — SERVER RULES 🌸\n\n` +
-        `Welcome to **Blossoms!** 🌷\n\n` +
-        `To keep our community welcoming, enjoyable, and safe for everyone, please take a moment to read and follow the rules below.\n\n` +
+        `# 🌸 ***BLOSSOMS ~ SERVER RULES*** 🌸\n\n` +
+        `*Welcome to* **Blossoms!** 🌷\n\n` +
+        `*To keep our community welcoming, enjoyable, and safe for everyone, please take a moment to read and follow the rules below.*\n\n` +
 
-        `## 01 • RESPECT\n\n` +
-        `Treat everyone with kindness and respect. Harassment, bullying, discrimination, hate speech, or targeted attacks will not be tolerated.\n\n\n` +
+        `## ***01 • RESPECT***\n\n` +
+        `*Treat everyone with kindness and respect. Harassment, bullying, discrimination, hate speech, or targeted attacks will not be tolerated.*\n\n\n` +
 
-        `## 02 • NO DRAMA\n\n` +
-        `Do not start, encourage, or spread unnecessary drama, arguments, or conflicts. Keep personal issues out of public channels.\n\n\n` +
+        `## ***02 • NO DRAMA***\n\n` +
+        `*Do not start, encourage, or spread unnecessary drama, arguments, or conflicts. Keep personal issues out of public channels.*\n\n\n` +
 
-        `## 03 • KEEP IT APPROPRIATE\n\n` +
-        `Sexual, excessively graphic, NSFW, or otherwise inappropriate content is not allowed. Keep conversations suitable for the community.\n\n\n` +
+        `## ***03 • KEEP IT APPROPRIATE***\n\n` +
+        `*Sexual, excessively graphic, NSFW, or otherwise inappropriate content is not allowed. Keep conversations suitable for the community.*\n\n\n` +
 
-        `## 04 • NO SPAM\n\n` +
-        `Avoid excessive spam, excessive tagging, repeated messages, emoji spam, or unnecessary use of commands.\n\n\n` +
+        `## ***04 • NO SPAM***\n\n` +
+        `*Avoid excessive spam, excessive tagging, repeated messages, emoji spam, or unnecessary use of commands.*\n\n\n` +
 
-        `## 05 • NO ADVERTISING\n\n` +
-        `Do not advertise other servers, services, social media, products, or communities without permission from the staff team.\n\n\n` +
+        `## ***05 • NO ADVERTISING***\n\n` +
+        `*Do not advertise other servers, services, social media, products, or communities without permission from the staff team.*\n\n\n` +
 
-        `## 06 • USE THE RIGHT CHANNEL\n\n` +
-        `Please keep conversations in their appropriate channels and follow any channel-specific rules or instructions.\n\n\n` +
+        `## ***06 • USE THE RIGHT CHANNEL***\n\n` +
+        `*Please keep conversations in their appropriate channels and follow any channel-specific rules or instructions.*\n\n\n` +
 
-        `## 07 • NO MALICIOUS ACTIVITY\n\n` +
-        `Scamming, phishing, malicious links, threats, doxxing, account theft, or attempts to harm other members are strictly prohibited.\n\n\n` +
+        `## ***07 • NO MALICIOUS ACTIVITY***\n\n` +
+        `*Scamming, phishing, malicious links, threats, doxxing, account theft, or attempts to harm other members are strictly prohibited.*\n\n\n` +
 
-        `## 08 • RESPECT PRIVACY\n\n` +
+        `## ***08 • RESPECT PRIVACY***\n\n` +
         `Do not share another person's private information, messages, images, or personal details without their permission.\n\n\n` +
 
-        `## 09 • LISTEN TO STAFF\n\n` +
-        `Staff members are responsible for maintaining the community. Follow reasonable staff instructions and use the appropriate channels if you wish to appeal a moderation action.\n\n\n` +
+        `## ***09 • LISTEN TO STAFF***\n\n` +
+        `*Staff members are responsible for maintaining the community. Follow reasonable staff instructions and use the appropriate channels if you wish to appeal a moderation action.*\n\n\n` +
 
-        `## 10 • USE COMMON SENSE\n\n` +
-        `Not every situation can be covered by a written rule. If something is clearly disruptive, harmful, or inappropriate, staff may take action.\n\n` +
+        `## ***10 • USE COMMON SENSE***\n\n` +
+        `*Not every situation can be covered by a written rule. If something is clearly disruptive, harmful, or inappropriate, staff may take action.*\n\n` +
 
         `____________________\n\n` +
         `🌷 **FINAL NOTE**\n\n` +
-        `By remaining in **Blossoms**, you agree to follow these rules and any additional guidelines provided by the staff team.\n\n` +
+        `*By remaining in* **Blossoms**, *you agree to follow these rules and any additional guidelines provided by the staff team.\n\n` +
         `**Have fun, meet new people, and help make Blossoms a great community!** 💗\n\n` +
         `*Blossoms • Growing a better community together* 🌸`
       )
