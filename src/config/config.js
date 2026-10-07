@@ -56,9 +56,7 @@ const config = {
 
   links: {
     rules: optional("RULES_URL"),
-    roleSelect: optional("ROLE_SELECT_URL"),
     marketplace: optional("MARKETPLACE_URL"),
-    dashboard: optional("DASHBOARD_URL"),
   },
 
   banners: {
