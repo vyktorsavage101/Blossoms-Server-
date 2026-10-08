@@ -43,53 +43,34 @@ export function createWelcomePanel(member, memberCount) {
 
   container.addTextDisplayComponents(
     new TextDisplayBuilder().setContent(
-      `## 🌸 WELCOME TO BLOSSOMS! 🌸\n\n` +
-      `Welcome to Blossoms! We're glad to have you here, <@${member.id}>. 🌷\n\n` +
-      `Whether you're here to meet new people, hang out with the community, participate in events, or simply relax, there's a place for you here.\n\n` +
-      `✨ **Before you get started:**\n` +
-      `📜 Read through our server rules\n` +
-      `🎭 Pick your roles\n` +
-      `💬 Introduce yourself and meet the community\n` +
-      `🎉 Check out our events and activities\n` +
-      `🛍️ Explore everything Blossoms has to offer\n\n` +
-      `Please make yourself comfortable, be respectful to others, and most importantly — have fun!\n\n` +
-      `🌷 Once again, welcome to Blossoms! We hope you enjoy your stay.\n\n` +
-      `🌐 **Blossoms Dashboard**\n` +
-      `Use the dashboard to explore Blossoms resources, manage your community options, and find everything you need in one place.`
+      `## 🌸 ***WELCOME TO BLOSSOMS!*** 🌸\n\n` +
+      `*Welcome to Blossoms! We're glad to have you here, <@${member.id}>.* 🌷\n\n` +
+      `*Whether you're here to meet new people, hang out with the community, participate in events, or simply relax, there's a place for you here.*\n\n` +
+      `<:info:1523167146031579336> **Before you get started:**\n` +
+      `<:Regulations:1546362677209866340> *Read through our server rules*\n` +
+      `<:person:1523191879624298609> *Pick your roles*\n` +
+      `<:chat_revive:1523157841878323351> *Introduce yourself and meet the community*\n` +
+      `<:party:1523165101702778980> *Check out our events and activities*\n` +
+      `<:partnership_:1523165032152694784> *Explore everything Blossoms has to offer*\n\n` +
+      `*Please make yourself comfortable, be respectful to others, and most importantly — have fun!*\n\n` +
+      `🌷 *Once again, welcome to Blossoms! We hope you enjoy your stay.*\n\n` +
+
     )
   );
 
   const buttons = [
     new ButtonBuilder()
       .setLabel("Rules")
-      .setEmoji("📜")
+      .setEmoji("<:Regulations:1546362677209866340>")
       .setStyle(ButtonStyle.Link)
       .setURL(channelUrl(config.channels.rules)),
     new ButtonBuilder()
       .setLabel("Role Select")
-      .setEmoji("🎭")
+      .setEmoji("<:person:1523191879624298609>")
       .setStyle(ButtonStyle.Link)
       .setURL(channelUrl(config.channels.roleSelect)),
   ];
 
-  if (config.links.marketplace) {
-    buttons.push(
-      new ButtonBuilder()
-        .setLabel("Marketplace")
-        .setEmoji("🛍️")
-        .setStyle(ButtonStyle.Link)
-        .setURL(config.links.marketplace)
-    );
-  }
-
-  if (config.links.dashboard) {
-    buttons.push(
-      new ButtonBuilder()
-        .setLabel("Dashboard")
-        .setEmoji("🌐")
-        .setStyle(ButtonStyle.Link)
-        .setURL(config.links.dashboard)
-    );
   }
 
   container
