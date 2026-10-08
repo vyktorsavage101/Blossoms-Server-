@@ -53,7 +53,10 @@ export function createWelcomePanel(member, memberCount) {
       `<:party:1523165101702778980> *Check out our events and activities*\n` +
       `<:partnership_:1523165032152694784> *Explore everything Blossoms has to offer*\n\n` +
       `*Please make yourself comfortable, be respectful to others, and most importantly — have fun!*\n\n` +
-      `🌷 *Once again, welcome to Blossoms! We hope you enjoy your stay.*\n\n` +
+      `🌷 *Once again, welcome to Blossoms! We hope you enjoy your stay.*\n\n`
+      )
+    );
+
 
   const buttons = [
     new ButtonBuilder()
@@ -68,7 +71,6 @@ export function createWelcomePanel(member, memberCount) {
       .setURL(channelUrl(config.channels.roleSelect)),
   ];
 
-  }
 
   container
     .addSeparatorComponents(new SeparatorBuilder())
