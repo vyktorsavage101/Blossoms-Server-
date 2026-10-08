@@ -55,7 +55,6 @@ export function createWelcomePanel(member, memberCount) {
       `*Please make yourself comfortable, be respectful to others, and most importantly — have fun!*\n\n` +
       `🌷 *Once again, welcome to Blossoms! We hope you enjoy your stay.*\n\n` +
 
-    )
   );
 
   const buttons = [
